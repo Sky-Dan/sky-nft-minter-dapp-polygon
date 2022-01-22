@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useStatus } from "../context/statusContext";
 import { connectWallet, getCurrentWalletConnected } from "../utils/interact";
 
@@ -14,15 +14,7 @@ const Header = () => {
     setStatus(walletResponse.status);
   };
 
-  useEffect(async () => {
-    const walletResponse = await getCurrentWalletConnected();
-    setWalletAddress(walletResponse.address);
-    setStatus(walletResponse.status);
-
-    addWalletListener();
-  }, []);
-
-  const addWalletListener = () => {
+  const addWalletListener = useCallback(() => {
     if (window.ethereum) {
       window.ethereum.on("accountsChanged", async (accounts) => {
         if (accounts.length > 0) {
@@ -34,7 +26,19 @@ const Header = () => {
         }
       });
     }
-  };
+  }, [setStatus]);
+
+  const handleCurrentWalletConnected = useCallback(async () => {
+    const walletResponse = await getCurrentWalletConnected();
+    setWalletAddress(walletResponse.address);
+    setStatus(walletResponse.status);
+
+    addWalletListener();
+  }, [addWalletListener, setStatus]);
+
+  useEffect(() => {
+    handleCurrentWalletConnected();
+  }, [handleCurrentWalletConnected]);
 
   return (
     <>
@@ -104,6 +108,7 @@ const Header = () => {
                 <a
                   href="https://testnets.opensea.io/collection/eggteamnew"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <svg
                     className="w-7 h-7"

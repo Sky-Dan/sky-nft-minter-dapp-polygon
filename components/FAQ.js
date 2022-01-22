@@ -72,7 +72,7 @@ export default function MyApp() {
             {faq1 && (
               <ul className="">
                 <li>
-                  <p className="text-base leading-normal text-gray-600 mt-4">
+                  {/* <p className="text-base leading-normal text-gray-600 mt-4">
                     NFT stands for "Non-fungible token," a unique, digital item
                     with blockchain-managed ownership that users can buy, own,
                     and trade. While some NFT's function as digital art, they
@@ -80,7 +80,7 @@ export default function MyApp() {
                     websites, event tickets, game items, and ownership records
                     for physical objects. Think of it as a unique piece of art
                     that can also serve as a one-of-a-kind "members-only" card.
-                  </p>
+                  </p> */}
                 </li>
               </ul>
             )}

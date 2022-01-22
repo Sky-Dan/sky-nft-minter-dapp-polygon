@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { useStatus } from "../context/statusContext";
 
@@ -20,12 +20,16 @@ const Hero = () => {
   const [nftPrice, setNftPrice] = useState("0.01");
   const [isSaleActive, setIsSaleActive] = useState(false);
 
-  useEffect(async () => {
+  const handle = useCallback(async () => {
     setMaxMintAmount(await getMaxMintAmount());
     setNftPrice(await getNftPrice());
     setIsSaleActive(await getSaleState());
     await updateTotalSupply();
-  });
+  }, []);
+
+  useEffect(() => {
+    handle();
+  }, [handle]);
 
   const updateTotalSupply = async () => {
     const mintedCount = await getTotalSupply();
