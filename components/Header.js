@@ -106,7 +106,7 @@ const Header = () => {
             <ul className="flex items-center space-x-6">
               <li>
                 <a
-                  href="https://testnets.opensea.io/collection/eggteamnew"
+                  href="https://opensea.io/collection/eggteam"
                   target="_blank"
                   rel="noreferrer"
                 >

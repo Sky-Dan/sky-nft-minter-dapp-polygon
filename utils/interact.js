@@ -1,8 +1,11 @@
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(process.env.NEXT_PUBLIC_API_URL);
 
+// const Web3 = require("web3");
+// const web3 = new Web3(process.env.NEXT_PUBLIC_API_URL);
+
 const contract = require("../artifacts/contracts/EggTeam.sol/EggTeam.json");
-const contractAddress = "0xBc50e982F293A27D4234139Dc80fF4F3D4D02641";
+const contractAddress = "0xd158e22236505308eb50a2b2790a956e7c8bb453";
 const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
 
 export const connectWallet = async () => {

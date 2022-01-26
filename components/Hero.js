@@ -22,8 +22,10 @@ const Hero = () => {
 
   const handle = useCallback(async () => {
     setMaxMintAmount(await getMaxMintAmount());
+
     setNftPrice(await getNftPrice());
     setIsSaleActive(await getSaleState());
+
     await updateTotalSupply();
   }, []);
 
@@ -124,7 +126,7 @@ const Hero = () => {
               </div>
 
               <h4 className="mt-2 font-semibold text-center text-white">
-                {nftPrice} ETH{" "}
+                {nftPrice} MATIC{" "}
                 <span className="text-sm text-gray-300"> + GAS</span>
               </h4>
 
