@@ -87,7 +87,7 @@ const About = () => {
                         />
                       </svg>
                     </span>
-                    <p className="ml-2">0.01 ETH per EGG.</p>
+                    <p className="ml-2">0.01 MATIC per EGG.</p>
                   </li>
                 </ul>
               </div>
