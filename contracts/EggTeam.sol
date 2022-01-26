@@ -13,11 +13,11 @@ contract EggTeam is ERC721, Ownable, ERC721Enumerable {
 
     uint256 public constant tokenPrice = 10000000000000000; // 0.01 ETH
     uint256 public constant maxTokenPurchase = 5;
-    uint256 public constant MAX_TOKENS = 123;
+    uint256 public constant MAX_TOKENS = 1000;
 
     string public baseURI = ""; // IPFS URL WILL BE ADDED WHEN TOKENS ARE ALL SOLD OUT
 
-    bool public saleIsActive = false;
+    bool public saleIsActive = true;
     bool public presaleIsActive = false;
     bool public isRevealed = false;
 
@@ -29,7 +29,7 @@ contract EggTeam is ERC721, Ownable, ERC721Enumerable {
 
     event EggMinted(uint256 tokenId, address owner);
 
-    constructor() ERC721("EggTeamNew", "EGGT") {}
+    constructor() ERC721("EggTeam", "EGGT") {}
 
     function _baseURI() internal view virtual override returns (string memory) {
         return baseURI;
@@ -187,7 +187,7 @@ contract EggTeam is ERC721, Ownable, ERC721Enumerable {
 
         if (isRevealed == false) {
             return
-                "ipfs://QmV1abuZWULaoJAbKUGA1rwaZH4rQBmgw7QeFHh3ZYUWB9/hidden.json";
+                "ipfs://QmU9qGdGT852YnjjTdY2D5eG9PFoQghSR34kHmzV7GAz92/hidden.json";
         }
 
         return

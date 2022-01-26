@@ -75,6 +75,7 @@ const Gallery = ({}) => {
                       className="embla__slide__img"
                       src={nft.image}
                       alt={"NFT"}
+                      width="50px"
                     />
                   </div>
                 </div>
