@@ -1,12 +1,12 @@
-import Head from "next/head";
-import Link from "next/link";
-import { useState, useEffect, useCallback } from "react";
-import { useStatus } from "../context/statusContext";
-import { connectWallet, getCurrentWalletConnected } from "../utils/interact";
+import Head from 'next/head';
+import Link from 'next/link';
+import { useState, useEffect, useCallback } from 'react';
+import { useStatus } from '../context/statusContext';
+import { connectWallet, getCurrentWalletConnected } from '../utils/interact';
 
 const Header = () => {
   const { setStatus } = useStatus();
-  const [walletAddress, setWalletAddress] = useState("");
+  const [walletAddress, setWalletAddress] = useState('');
 
   const connectWalletPressed = async () => {
     const walletResponse = await connectWallet();
@@ -16,13 +16,13 @@ const Header = () => {
 
   const addWalletListener = useCallback(() => {
     if (window.ethereum) {
-      window.ethereum.on("accountsChanged", async (accounts) => {
+      window.ethereum.on('accountsChanged', async (accounts) => {
         if (accounts.length > 0) {
           setWalletAddress(accounts[0]);
-          setStatus("");
+          setStatus('');
         } else {
-          setWalletAddress("");
-          setStatus("🦊 Connect to Metamask using Connect Wallet button.");
+          setWalletAddress('');
+          setStatus('🦊 Connect to Metamask using Connect Wallet button.');
         }
       });
     }
@@ -43,7 +43,7 @@ const Header = () => {
   return (
     <>
       <Head>
-        <title>Egg Team NFT</title>
+        <title>Box NFT</title>
         <meta name="description" content="Nft Minting Tutorial" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -53,8 +53,8 @@ const Header = () => {
           {/* Logo */}
           <Link href="#">
             <a className="text-2xl font-bold">
-              <span className="pr-2 text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-purple-600">
-                Egg
+              <span className="pr-2 text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-600">
+                The Box
               </span>
               Faces
             </a>
@@ -82,16 +82,16 @@ const Header = () => {
                 </Link>
               </li>
 
-              <li className="hover:text-purple-500 hover:border-purple-500 cursor-pointer px-4 py-2 font-extrabold text-purple-300 border border-purple-300 rounded-md">
+              <li className="hover:text-blue-500 hover:border-purple-500 cursor-pointer px-4 py-2 font-extrabold text-purple-300 border border-purple-300 rounded-md">
                 <a
                   className=""
                   id="walletButton"
                   onClick={connectWalletPressed}
                 >
                   {walletAddress.length > 0 ? (
-                    "Connected: " +
+                    'Connected: ' +
                     String(walletAddress).substring(0, 6) +
-                    "..." +
+                    '...' +
                     String(walletAddress).substring(38)
                   ) : (
                     <span>Connect Wallet</span>
@@ -105,11 +105,7 @@ const Header = () => {
           <nav aria-label="Contact Menu">
             <ul className="flex items-center space-x-6">
               <li>
-                <a
-                  href="https://opensea.io/collection/eggteam"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href="" target="_blank" rel="noreferrer">
                   <svg
                     className="w-7 h-7"
                     viewBox="0 0 90 90"

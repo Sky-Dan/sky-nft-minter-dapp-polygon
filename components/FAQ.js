@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Head from "next/head";
+import React, { useState } from 'react';
+import Head from 'next/head';
 export default function MyApp() {
   const [faq1, setFaq1] = useState(false);
   const [faq2, setFaq2] = useState(false);
@@ -221,7 +221,7 @@ export default function MyApp() {
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="font-bold font-comfortaa uppercase text-lg leading-none text-gray-800">
-                  Who is behind Egg Team?
+                  Who is behind Box Team?
                 </h2>
               </div>
               <button

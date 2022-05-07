@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
-import { useStatus } from "../context/statusContext";
+import React, { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
+import { useStatus } from '../context/statusContext';
 
 import {
   getMaxMintAmount,
@@ -8,7 +8,7 @@ import {
   getNftPrice,
   mintNFT,
   getSaleState,
-} from "../utils/interact";
+} from '../utils/interact';
 
 const Hero = () => {
   const { status, setStatus } = useStatus();
@@ -17,7 +17,7 @@ const Hero = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [maxMintAmount, setMaxMintAmount] = useState(0);
   const [totalSupply, setTotalSupply] = useState(0);
-  const [nftPrice, setNftPrice] = useState("0.01");
+  const [nftPrice, setNftPrice] = useState('100');
   const [isSaleActive, setIsSaleActive] = useState(false);
 
   const handle = useCallback(async () => {
@@ -58,7 +58,7 @@ const Hero = () => {
 
     setStatus(status);
 
-    // We minted a new egg face, so we need to update the total supply
+    // We minted a new box, so we need to update the total supply
     updateTotalSupply();
   };
 
@@ -70,7 +70,7 @@ const Hero = () => {
             src="/images/preview.gif"
             width="270"
             height="270"
-            alt="egg faces gif"
+            alt="box gif"
             className="rounded-md"
           />
 
@@ -126,7 +126,7 @@ const Hero = () => {
               </div>
 
               <h4 className="mt-2 font-semibold text-center text-white">
-                {nftPrice} MATIC{" "}
+                {nftPrice} MATIC{' '}
                 <span className="text-sm text-gray-300"> + GAS</span>
               </h4>
 
@@ -135,12 +135,12 @@ const Hero = () => {
                 className="mt-6 py-2 px-4 text-center text-white uppercase bg-pink-500 border-b-4 border-pink-700 rounded hover:bg-pink-400 hover:border-pink-500"
                 onClick={mintEggTeam}
               >
-                {isLoading ? "Minting..." : "Mint now!"}
+                {isLoading ? 'Minting...' : 'Mint now!'}
               </button>
             </>
           ) : (
             <p className="text-white text-2xl mt-8">
-              {" "}
+              {' '}
               😥 Sale is not active yet!
             </p>
           )}

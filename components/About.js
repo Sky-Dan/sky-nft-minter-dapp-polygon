@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const About = () => {
   return (
@@ -12,7 +12,7 @@ const About = () => {
           <div className="max-w-md mx-auto">
             <div>
               <h1 className="font-mono text-3xl font-bold text-gray-900 underlined">
-                THE EGG TEAM
+                THE BOX TEAM
               </h1>
             </div>
             <div className="divide-y divide-gray-200">
@@ -87,20 +87,20 @@ const About = () => {
                         />
                       </svg>
                     </span>
-                    <p className="ml-2">0.01 MATIC per EGG.</p>
+                    <p className="ml-2">100 MATIC per EGG.</p>
                   </li>
                 </ul>
               </div>
               <div className="pt-6 text-base leading-6 font-extralight sm:text-lg sm:leading-7">
                 {/* <p>
-                  Egg Faces seemed doomed to live as fancy props. Mere portable
+                  Box seemed doomed to live as fancy props. Mere portable
                   delights for their human masters. But a few rogue ones didn't
                   want to play the nice-faces game anymore.
                 </p> */}
                 <p className="mt-8">
                   <Link href="#main">
                     <a className="text-cyan-600 hover:text-cyan-700">
-                      {" "}
+                      {' '}
                       Mint one
                     </a>
                   </Link>
